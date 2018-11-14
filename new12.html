@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<center>
+		Staff Listing
+	<center>
+	
+	<table border="1">
+		<td>
+			<tr><img id="photo0" /></tr>
+			<td id="last0"></td><td id="first0"></td>
+			
+			<tr><img id="photo1" /></tr>
+			<td id="last1"></td><td id="first1"></td>
+		</td>
+	</table>
+	
+
+<script type="text/javascript">
+ var HttpClient = function() {
+ this.get = function(aUrl, aCallback) {
+ var anHttpRequest = new XMLHttpRequest();
+ anHttpRequest.onreadystatechange = function() { 
+ if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+ aCallback(anHttpRequest.responseText);
+ }
+ anHttpRequest.open( "GET", aUrl, true ); 
+ anHttpRequest.send( null ); 
+ }
+ }
+ var url='https://reqres.in/api/users?page=1';
+ var client = new HttpClient();
+ client.get(url, function(response) { 
+ var response1 = JSON.parse(response);
+ // alert(response);
+ for (i = 0; i< response1.data.length; i++){
+	 document.getElementById('first'+i).innerHTML = response1.data[i].first_name;
+	 document.getElementById('last'+i).innerHTML = response1.data[i].last_name;
+	 document.getElementById('photo'+i).src = response1.data[i].avatar;
+ }
+
+ }); 
+
+</script>
+
+</body>
+</html>
