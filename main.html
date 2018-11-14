@@ -1,0 +1,92 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="pagination.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.solodev.com/assets/pagination/jquery.twbsPagination.js"></script>
+
+<script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+$('#pagination-demo').twbsPagination({
+totalPages: 4,
+// the current page that show on start
+startPage: 1,
+
+// maximum visible pages
+visiblePages: 4,
+
+initiateStartPageClick: true,
+
+// template for pagination links
+href: false,
+
+// variable name in href template for page number
+hrefVariable: '{{number}}',
+
+// Text labels
+first: 'First',
+prev: '&laquo;',
+next: '&raquo;',
+last: 'Last',
+
+// carousel-style pagination
+loop: false,
+
+// callback function
+onPageClick: function (event, page) {
+   $('.page-active').removeClass('page-active');
+  $('#page'+page).addClass('page-active');
+},
+
+// pagination Classes
+paginationClass: 'pagination',
+nextClass: 'next',
+prevClass: 'prev',
+lastClass: 'last',
+firstClass: 'first',
+pageClass: 'page',
+activeClass: 'active',
+disabledClass: 'disabled'
+
+});
+
+});
+</script>
+
+<h1>
+<center>Staff Inquiry & Listing</center>
+</h1>
+
+<div class="container">
+   <div class="jumbotron page" id="page1">
+      <div class="container">
+  <table>
+  <col width="130">
+  <col width="60">
+  <col width="130">
+  <col width="60">
+  <col width="130">
+    <tbody>
+      <tr>
+		<td><img id="photo0" class="lazy" alt=""></td>
+		<td></td>
+		<td><img id="photo1" class="lazy" alt=""></td>
+		<td></td>
+		<td><img id="photo2" class="lazy" alt=""></td>
+	  </tr>
+	  <tr>
+		<td class="red" id="name0"</td>
+		<td></td>
+		<td class="red" id="name1"</td>
+		<td></td>
+		<td class="red" id="name2"</td>
+	  </tr>
+    </tbody>
+  </table>
+        </div>
+   </div>
+
+   <ul id="pagination-demo" class="pagination-lg pull-right"></ul>
+</div>
